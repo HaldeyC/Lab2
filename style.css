@@ -9,7 +9,7 @@
    --error-color: hsl(354, 70%, 54%);
    --underline-color: hsl(0, 100%, 50%);
    --bg-gradient: linear-gradient(300deg, hsl(0, 0%, 85%) 0%, hsl(0, 0%, 100%) 100%);
-   --bg-gradient-form: linear-gradient(300deg, hsl(197, 78%, 70%) 0%, hsl(214, 78%, 61%) 100%);
+   --bg-form: hsl(0, 0%, 84%);
 }
 
 /* Basic CSS reset */

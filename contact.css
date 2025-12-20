@@ -4,7 +4,7 @@
 }
 
 form {
-   background: var(--bg-gradient-form);
+   background: var(--bg-form);
    border: 2px solid var(--secondary-color);
    border-radius: 0.5rem;
    padding: 2rem;
@@ -19,7 +19,7 @@ form > div {
 }
 
 label {
-   color: var(--primary-color);
+   color: var(--secondary-color);
    text-align: end;
 }
 
@@ -40,6 +40,18 @@ select {
 input:focus,
 section:focus {
    border: 1px solid var(--focus-color);
+}
+
+form p {
+   display: flex;
+   margin-left: auto;
+   width: 75%;
+}
+
+.err-msg {
+   color: var(--error-color);
+   font-size: 0.9rem;
+   font-style: italic;
 }
 
 .form-btns {
