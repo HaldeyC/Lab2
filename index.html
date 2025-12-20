@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="author" content="Cay Haldey" />
       <link rel="stylesheet" href="style.css" />
-      <title>Lab 1</title>
+      <title>Lab 2</title>
    </head>
    <body id="top-of-page">
       <!-- Header -->
@@ -100,16 +100,21 @@
                   <input type="text" name="lname" required placeholder="Doe" />
                </div>
                <div>
-                  <label for="phone">Phone</label>
-                  <input
-                     type="tel"
-                     name="phone"
-                     pattern="[0-9]{2}-[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{2}"
-                     placeholder="46-8-123-456-78" />
-               </div>
-               <div>
                   <label for="email">Email</label>
                   <input type="email" name="email" required placeholder="john@doe.se" />
+               </div>
+               <div>
+                  <label for="phone">Phone</label>
+                  <input type="tel" name="phone" placeholder="46-8-123-456-78" />
+               </div>
+               <div>
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject">
+                     <option value="">Select a subject</option>
+                     <option value="1">Interests</option>
+                     <option value="2">Future Goals</option>
+                     <option value="3">Contact</option>
+                  </select>
                </div>
                <div>
                   <label for="msg">Message</label>
