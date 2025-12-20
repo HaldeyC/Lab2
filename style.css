@@ -7,6 +7,7 @@
    --no-focus-color: hsl(0, 0%, 80%);
    --focus-color: hsl(203, 100%, 25%);
    --error-color: hsl(354, 70%, 54%);
+   --valid-color: hsl(120, 100%, 25%);
    --underline-color: hsl(0, 100%, 50%);
    --bg-gradient: linear-gradient(300deg, hsl(0, 0%, 85%) 0%, hsl(0, 0%, 100%) 100%);
    --bg-form: hsl(0, 0%, 84%);
