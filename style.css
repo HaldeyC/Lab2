@@ -1,0 +1,252 @@
+:root {
+   --primary-color: hsl(0, 0%, 93%);
+   --section-even-color: hsl(0, 0%, 100%);
+   --section-odd-color: hsl(208, 100%, 97%);
+   --secondary-color: hsl(0, 0%, 20%);
+   --link-hover: hsl(48, 100%, 50%);
+   --focus-color: hsl(203, 100%, 25%);
+   --underline-color: hsl(0, 100%, 50%);
+   --bg-gradient: linear-gradient(300deg, hsl(0, 0%, 85%) 0%, hsl(0, 0%, 100%) 100%);
+   --bg-gradient-form: linear-gradient(300deg, hsl(197, 78%, 70%) 0%, hsl(214, 78%, 61%) 100%);
+}
+
+/* Basic CSS reset */
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+* {
+   margin: 0;
+   padding: 0;
+}
+/* Main Style */
+body {
+   background-color: var(--primary-color);
+   background: var(--bg-gradient);
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+      "Open Sans", "Helvetica Neue", sans-serif;
+   font-size: 1.1rem;
+   line-height: 1.5;
+}
+
+img {
+   width: 400px;
+}
+
+a {
+   color: var(--primary-color);
+   text-decoration: none;
+   transition: all 0.3s ease;
+}
+
+a:hover {
+   color: var(--link-hover);
+   scale: 1.1;
+}
+
+h2 {
+   border-bottom: 1px solid var(--underline-color);
+   margin-bottom: 1rem;
+   width: 100%;
+}
+
+/* Header */
+header {
+   background-color: var(--secondary-color);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1rem 2rem;
+   position: sticky;
+   top: 0;
+   z-index: 10;
+}
+
+.logo {
+   height: auto;
+   width: 100px;
+}
+
+.header-navbar {
+   display: flex;
+   gap: 1rem;
+}
+
+/* Ser till att ta endast a elementet med class logo */
+header > a:has(.logo) {
+   scale: 1;
+}
+
+/* Main */
+main {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   margin-bottom: 2rem;
+}
+
+/* Sections */
+section {
+   scroll-margin-top: 9rem; /* Ser till att hamna rätt vid klickning på navbar */
+   max-width: 70rem;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+.hero {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 0;
+   max-width: none;
+   height: 60vh;
+   width: 100%;
+}
+
+.hero h1 {
+   color: var(--primary-color);
+   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+   font-style: italic;
+   font-size: 4rem;
+   letter-spacing: 3px;
+   padding: 0 2rem;
+   z-index: 2;
+}
+
+.hero img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+section > div {
+   display: flex;
+   gap: 2rem;
+}
+
+#biography,
+#future-goals {
+   background-color: var(--section-even-color);
+}
+
+#interests {
+   background-color: var(--section-odd-color);
+}
+
+/* Form */
+#form {
+   min-width: 50vw;
+}
+
+form {
+   background: var(--bg-gradient-form);
+   border: 2px solid var(--secondary-color);
+   border-radius: 0.5rem;
+   padding: 2rem;
+   font-size: 1.2rem;
+}
+
+form > div {
+   display: grid;
+   grid-template-columns: 100px 1fr;
+   gap: 1rem;
+   margin-top: 1rem;
+}
+
+label {
+   color: var(--primary-color);
+   text-align: end;
+}
+
+input,
+textarea {
+   padding-left: 10px;
+}
+
+textarea {
+   padding-top: 10px;
+}
+
+input:focus {
+   border: 1px solid var(--focus-color);
+}
+
+button {
+   display: block;
+   border-radius: 9999px;
+   color: var(--secondary-color);
+   font-size: 1.2rem;
+   margin-top: 1rem;
+   margin-left: auto;
+   padding: 0.3rem 1.5rem;
+   transition: all 0.3s ease;
+   cursor: pointer;
+}
+
+button:hover {
+   scale: 1.1;
+}
+
+/* Footer */
+footer {
+   background-color: var(--secondary-color);
+   color: var(--primary-color);
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   padding: 2rem;
+}
+
+/* Media query */
+@media (max-width: 768px) {
+   header {
+      flex-direction: column;
+   }
+   nav {
+      padding: 0.8rem 0;
+   }
+
+   img {
+      margin: 0 auto;
+      max-height: 300px;
+      object-fit: contain;
+   }
+
+   .hero img {
+      max-height: 100%;
+   }
+
+   section > div {
+      flex-direction: column;
+   }
+
+   #biography div,
+   #future-goals div {
+      flex-direction: column-reverse;
+   }
+
+   #form {
+      max-width: 100vw;
+   }
+}
+
+@media (max-width: 640px) {
+   nav {
+      border-top: 1px solid var(--primary-color);
+      flex-direction: column;
+      align-items: center;
+   }
+
+   h1 {
+      text-align: center;
+   }
+   footer {
+      flex-direction: column;
+   }
+}

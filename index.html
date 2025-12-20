@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="author" content="Cay Haldey" />
+      <link rel="stylesheet" href="style.css" />
+      <title>Lab 1</title>
+   </head>
+   <body id="top-of-page">
+      <!-- Header -->
+      <header>
+         <a href="#top-of-page"><img class="logo" src="logo.webp" alt="logotype of a dragon" /></a>
+         <nav class="header-navbar">
+            <a href="#top-of-page">Home</a>
+            <a href="#interests">Interests</a>
+            <a href="#future-goals">Future Goals</a>
+            <a href="#form">Contact</a>
+            <a href="https://github.com/HaldeyC/Lab1" target="_blank">Github - Lab1</a>
+         </nav>
+      </header>
+      <main>
+         <!-- Hero -->
+         <section class="hero">
+            <h1>Haldey Portfolio</h1>
+            <img src="sakura.webp" alt="an image of sakura trees" />
+         </section>
+
+         <!-- Biography -->
+         <section id="biography">
+            <h2>Biography</h2>
+            <div>
+               <p>
+                  My name in Cay Haldey. I am almost 50 years old. I'm not new to computers but I'm pretty new
+                  to web development. I have a special memory I like to share. When i was around 8-10 years
+                  old I got my first computer. Still remember the model, a Commandore VIC-20. It was not much
+                  of a computer if you compair to todays PC's but you could play games on them. The first game
+                  I play was "City Bomber". You started the game by pushing in a cartridge in the VIC-20 and
+                  flipped the power switch. The game started and a little plane flew from left to right. You
+                  pressed the spacebar to drop a bombs on the buildings so the buildings got destroyed. Once
+                  all the buildings were destroyed you could land the plane and win the game. This was a very
+                  long time ago, but it is still a good memory to me.
+               </p>
+               <img src="me.webp" alt="an image of mee" />
+            </div>
+         </section>
+
+         <!-- Interests -->
+         <section id="interests">
+            <h2>Interests</h2>
+            <div>
+               <img src="interests.webp" alt="an image of some HTML code on a screen" />
+               <p>
+                  How I got interested in web development? That started a long time ago. Actually long before
+                  Google was in the picture. I tried it out when Netscape Navigator still was a thing. I
+                  thought it was to difficult to do anything and really didn't understand anything. I got my
+                  hands on a program that help to do small stuff, but the computer I had was to bad so I
+                  couldn't do much. Just a lot of lag. I stopped even trying. I started doing network stuff
+                  instead. Took a course in network managenment, this was back in
+                  <time datetime="1997">1997</time> or something like that. To make a long story short, that
+                  didn't work out for me. Started doing alot of other kind of jobs, until like 2-3 years ago,
+                  I got my interest back again. Started watching alot of Youtube tutorials. I started to try
+                  coding again, and this time some stuff really made sense. Applied to differant schools to
+                  get some better knowledge. Luckily I got in to Kristianstad University. So now I am learning
+                  and evolving in this field.
+               </p>
+            </div>
+         </section>
+
+         <!-- Future goals -->
+         <section id="future-goals">
+            <h2>Future Goals</h2>
+            <div>
+               <p>
+                  In the future I would like to work as an freelancer in this area of expertice. I would like
+                  to keep my current job as a Service and Operation manager but be able to gradually go over
+                  to web development full-time. Learning about HTML, CSS and JavaScript is very fun and I'm
+                  starting to view website differantly now then from before. Starting to analyze each page I
+                  visit now and I'm trying to understand how each page are built. I am really excited and
+                  looking forward to this furture. The reason I want to learn web development is of a simple
+                  reason, you can work from home and you can work from anywhere in the world. One wise person
+                  once said, when you work for someone you work for their dreams. But when you work for
+                  yourself you work for your dreams. That's why I chose this path, I want to be able to work
+                  for my own dreams in the future.
+               </p>
+               <img src="area.webp" alt="an image of an area in Stockholm" />
+            </div>
+         </section>
+
+         <!-- Form -->
+         <section id="form">
+            <h2>Contact me</h2>
+            <form method="post" action="mailto:cay.haldey0231@stud.hkr.se">
+               <div>
+                  <label for="fname">First name</label>
+                  <input type="text" name="fname" required placeholder="John" />
+               </div>
+               <div>
+                  <label for="lname">Lastname</label>
+                  <input type="text" name="lname" required placeholder="Doe" />
+               </div>
+               <div>
+                  <label for="phone">Phone</label>
+                  <input
+                     type="tel"
+                     name="phone"
+                     pattern="[0-9]{2}-[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{2}"
+                     placeholder="46-8-123-456-78" />
+               </div>
+               <div>
+                  <label for="email">Email</label>
+                  <input type="email" name="email" required placeholder="john@doe.se" />
+               </div>
+               <div>
+                  <label for="msg">Message</label>
+                  <textarea
+                     name="msg"
+                     rows="10"
+                     cols="50"
+                     required
+                     placeholder="Enter your message"></textarea>
+               </div>
+               <button type="submit">Send</button>
+            </form>
+         </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+         <a href="#">contact-me@stud.hkr.se</a>
+         <p>&copy; All rights reserved</p>
+         <a href="#">Privacy Policy & Terms</a>
+      </footer>
+   </body>
+</html>
