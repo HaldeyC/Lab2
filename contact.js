@@ -1,3 +1,79 @@
+// Variables
+//Inputs
+const firstName = document.getElementById("fname");
+const lastName = document.getElementById("lname");
+const email = document.getElementById("email");
+const msg = document.getElementById("msg-count");
+
+//Error outputs
+const fnameErr = document.getElementById("fname-error");
+const lnameErr = document.getElementById("lname-error");
+const emailErr = document.getElementById("email-error");
+const msgErr = document.getElementById("msg-error");
+
+// Check so that firstname only contains letters
+firstName.addEventListener("input", function () {
+   const fnameValue = firstName.value;
+   const onlyLetters = /^[A-Za-z]+$/;
+
+   if (fnameValue === "") {
+      fnameErr.innerHTML = "";
+      firstName.classList.remove("error-border", "valid-border");
+   } else if (!onlyLetters.test(fnameValue)) {
+      fnameErr.classList.add("show");
+      firstName.classList.add("error-border");
+      firstName.classList.remove("valid-border");
+      fnameErr.innerHTML = "Please use only letters";
+   } else {
+      fnameErr.innerHTML = "";
+      fnameErr.classList.remove("show");
+      firstName.classList.remove("error-border");
+      firstName.classList.add("valid-border");
+   }
+});
+
+// Check so that lastname only contains letters
+lastName.addEventListener("input", function () {
+   const lnameValue = lastName.value;
+   const onlyLetters = /^[A-Za-z]+$/;
+
+   if (lnameValue === "") {
+      lnameErr.innerHTML = "";
+      lastName.classList.remove("error-border", "valid-border");
+   } else if (!onlyLetters.test(lnameValue)) {
+      lnameErr.classList.add("show");
+      lastName.classList.add("error-border");
+      lastName.classList.remove("valid-border");
+      lnameErr.innerHTML = "Please use only letters";
+   } else {
+      lnameErr.innerHTML = "";
+      lnameErr.classList.remove("show");
+      lastName.classList.remove("error-border");
+      lastName.classList.add("valid-border");
+   }
+});
+
+// Check that the email contains a @
+email.addEventListener("input", function () {
+   const emailValue = email.value;
+
+   if (emailValue === "") {
+      email.classList.remove("valid-border", "error-border");
+      emailErr.classList.remove("show");
+      emailErr.innerHTML = "";
+   } else if (emailValue.includes("@")) {
+      email.classList.add("valid-border");
+      email.classList.remove("error-border");
+      emailErr.classList.remove("show");
+      emailErr.innerHTML = "";
+   } else {
+      email.classList.remove("valid-border");
+      email.classList.add("error-border");
+      emailErr.classList.add("show");
+      emailErr.innerHTML = "Email must contain a @";
+   }
+});
+
 // Reset form
 //https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset
-document.getElementById("form").reset();
+document.getElementById("myForm").reset();

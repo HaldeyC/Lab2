@@ -18,7 +18,7 @@
             <a href="#interests">Interests</a>
             <a href="#future-goals">Future Goals</a>
             <a href="#form">Contact</a>
-            <a href="https://github.com/HaldeyC/Lab1" target="_blank">Github - Lab1</a>
+            <a href="https://github.com/HaldeyC/Lab2" target="_blank">Github - Lab2</a>
          </nav>
       </header>
       <main>
@@ -92,21 +92,21 @@
          <!-- Form -->
          <section id="form">
             <h2>Contact me</h2>
-            <form method="post" action="mailto:cay.haldey0231@stud.hkr.se">
+            <form id="myForm" method="post" action="mailto:cay.haldey0231@stud.hkr.se">
                <div>
                   <label for="fname">First name</label>
-                  <input type="text" name="fname" required placeholder="John" />
+                  <input id="fname" type="text" name="fname" required placeholder="John" />
                </div>
                <p id="fname-error" class="err-msg"></p>
 
                <div>
                   <label for="lname">Lastname</label>
-                  <input type="text" name="lname" required placeholder="Doe" />
+                  <input id="lname" type="text" name="lname" required placeholder="Doe" />
                </div>
                <p id="lname-error" class="err-msg"></p>
                <div>
                   <label for="email">Email</label>
-                  <input type="email" name="email" required placeholder="john@doe.se" />
+                  <input id="email" type="email" name="email" required placeholder="john@doe.se" />
                </div>
                <p id="email-error" class="err-msg"></p>
                <div>
@@ -125,13 +125,14 @@
                <div>
                   <label for="msg">Message</label>
                   <textarea
+                     id="msg"
                      name="msg"
                      rows="10"
                      cols="50"
                      required
                      placeholder="Enter your message"></textarea>
                </div>
-               <p id="msg-error" class="err-msg"></p>
+               <p id="msg-count" class="err-msg"></p>
                <div class="form-btns">
                   <button type="reset">Clear</button>
                   <button type="submit">Send</button>
