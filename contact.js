@@ -17,75 +17,51 @@ const phoneErr = document.getElementById("phone-error");
 const charCount = document.getElementById("msg-count");
 
 // Functions
-function validateName() {}
-function validateEmail() {}
-function validateMessage() {}
-function showError() {}
-function clearError() {}
-function clearForm() {
-   const removeErrMsg = document.querySelectorAll(".err-msg");
-   removeErrMsg.forEach((p) => p.remove());
-
-   firstName.value = "";
-   firstName.classList.remove("valid-border", "error-border");
-   lastName.value = "";
-   lastName.classList.remove("valid-border", "error-border");
-   email.value = "";
-   email.classList.remove("valid-border", "error-border");
-   phone.value = "";
-   phone.classList.remove("valid-border", "error-border");
-   subject.value = "";
-   subject.classList.remove("valid-border", "error-border");
-   msg.value = "";
-   msg.classList.remove("valid-border", "error-border");
-   charCount.textContent = "0 / 20";
-   charCount.classList.remove("under", "over");
-}
-
-// Check so that firstname only contains letters
-firstName.addEventListener("input", function () {
+function validateName() {
    const fnameValue = firstName.value;
    const onlyLetters = /^[A-Za-z]+$/;
 
    if (fnameValue === "") {
       fnameErr.innerHTML = "";
       firstName.classList.remove("error-border", "valid-border");
+      return false;
    } else if (!onlyLetters.test(fnameValue)) {
       fnameErr.classList.add("show");
       firstName.classList.add("error-border");
       firstName.classList.remove("valid-border");
       fnameErr.innerHTML = "Please use only letters";
+      return false;
    } else {
       fnameErr.innerHTML = "";
       fnameErr.classList.remove("show");
       firstName.classList.remove("error-border");
       firstName.classList.add("valid-border");
+      return true;
    }
-});
-
-// Check so that lastname only contains letters
-lastName.addEventListener("input", function () {
+}
+function validateLast() {
    const lnameValue = lastName.value;
    const onlyLetters = /^[A-Za-z]+$/;
 
    if (lnameValue === "") {
       lnameErr.innerHTML = "";
       lastName.classList.remove("error-border", "valid-border");
+      return false;
    } else if (!onlyLetters.test(lnameValue)) {
       lnameErr.classList.add("show");
       lastName.classList.add("error-border");
       lastName.classList.remove("valid-border");
       lnameErr.innerHTML = "Please use only letters";
+      return false;
    } else {
       lnameErr.innerHTML = "";
       lnameErr.classList.remove("show");
       lastName.classList.remove("error-border");
       lastName.classList.add("valid-border");
+      return true;
    }
-});
-
-// Check that the email contains a @
-email.addEventListener("input", function () {
+}
+function validateEmail() {
    const emailValue = email.value;
 
    if (emailValue === "") {
@@ -103,10 +79,8 @@ email.addEventListener("input", function () {
       emailErr.classList.add("show");
       emailErr.innerHTML = "Email must contain a @";
    }
-});
-
-// Check so that phone only contains numbers
-phone.addEventListener("input", function () {
+}
+function validatePhone() {
    const phoneValue = phone.value;
    const onlyNumber = /^[0-9/-]+$/;
 
@@ -124,7 +98,42 @@ phone.addEventListener("input", function () {
       phone.classList.remove("error-border");
       phone.classList.add("valid-border");
    }
-});
+}
+function validateMessage() {}
+function showError() {}
+function clearError() {}
+function clearForm() {
+   firstName.value = "";
+   firstName.classList.remove("valid-border", "error-border");
+   fnameErr.classList.remove("show");
+   lastName.value = "";
+   lastName.classList.remove("valid-border", "error-border");
+   lnameErr.classList.remove("show");
+   email.value = "";
+   email.classList.remove("valid-border", "error-border");
+   emailErr.classList.remove("show");
+   phone.value = "";
+   phone.classList.remove("valid-border", "error-border");
+   phoneErr.classList.remove("show");
+   subject.value = "";
+   subject.classList.remove("valid-border", "error-border");
+   msg.value = "";
+   msg.classList.remove("valid-border", "error-border");
+   charCount.textContent = "0 / 20";
+   charCount.classList.remove("under", "over");
+}
+
+// Check so that firstname only contains letters
+firstName.addEventListener("input", validateName);
+
+// Check so that lastname only contains letters
+lastName.addEventListener("input", validateLast);
+
+// Check that the email contains a @
+email.addEventListener("input", validateEmail);
+
+// Check so that phone only contains numbers
+phone.addEventListener("input", validatePhone);
 
 // Add a green border when an option is chosen
 subject.addEventListener("change", function () {
@@ -164,6 +173,14 @@ resetBtn.addEventListener("click", function (e) {
 });
 
 // Submit button
-submitBtn.addEventListener("click", function (e) {
-   e.preventDefault();
+form.addEventListener("submit", function (e) {
+   const isFirstNameValid = validateName();
+   const isLastNameValid = validateLast();
+
+   if (!isFirstNameValid || !isLastNameValid) {
+      e.preventDefault();
+      alert("Formuläret har fel och skickades inte.");
+   } else {
+      alert("Allt ser bra ut! Skickar...");
+   }
 });

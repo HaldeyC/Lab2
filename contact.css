@@ -60,6 +60,7 @@ form p {
 }
 
 .err-msg {
+   display: none;
    color: var(--error-color);
    font-size: 0.9rem;
    font-style: italic;
@@ -68,6 +69,7 @@ form p {
 }
 
 .err-msg.show {
+   display: block;
    opacity: 1;
 }
 
