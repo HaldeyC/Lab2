@@ -48,7 +48,8 @@ input.error-border,
 }
 
 input.valid-border,
-#msg.valid-border {
+#msg.valid-border,
+#subject.valid-border {
    border: 2px solid var(--valid-color);
 }
 

@@ -4,6 +4,7 @@ const firstName = document.getElementById("fname");
 const lastName = document.getElementById("lname");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
+const subject = document.getElementById("subject");
 const msg = document.getElementById("msg");
 
 //Outputs
@@ -95,6 +96,15 @@ phone.addEventListener("input", function () {
       phone.classList.remove("error-border");
       phone.classList.add("valid-border");
    }
+});
+
+// Add a green border when an option is chosen
+subject.addEventListener("change", function () {
+   const subjectValue = subject.value;
+
+   if (subjectValue !== "") {
+      subject.classList.add("valid-border");
+   } else subject.classList.remove("valid-border");
 });
 
 //Count characters in textarea
