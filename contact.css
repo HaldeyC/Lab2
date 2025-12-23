@@ -68,6 +68,20 @@ form p {
    opacity: 1;
 }
 
+.char-count {
+   font-size: 0.9rem;
+   font-style: italic;
+   color: var(--inactive-color);
+}
+
+.char-count.under {
+   color: var(--error-color);
+}
+
+.char-count.over {
+   color: var(--valid-color);
+}
+
 .form-btns {
    display: flex;
    justify-content: end;

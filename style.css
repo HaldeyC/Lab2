@@ -1,8 +1,9 @@
 :root {
    --primary-color: hsl(0, 0%, 93%);
+   --secondary-color: hsl(0, 0%, 20%);
+   --inactive-color: hsl(0, 0%, 50%);
    --section-even-color: hsl(0, 0%, 100%);
    --section-odd-color: hsl(208, 100%, 97%);
-   --secondary-color: hsl(0, 0%, 20%);
    --link-hover: hsl(48, 100%, 50%);
    --no-focus-color: hsl(0, 0%, 80%);
    --focus-color: hsl(203, 100%, 25%);

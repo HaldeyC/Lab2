@@ -3,13 +3,13 @@
 const firstName = document.getElementById("fname");
 const lastName = document.getElementById("lname");
 const email = document.getElementById("email");
-const msg = document.getElementById("msg-count");
+const msg = document.getElementById("msg");
 
-//Error outputs
+//Outputs
 const fnameErr = document.getElementById("fname-error");
 const lnameErr = document.getElementById("lname-error");
 const emailErr = document.getElementById("email-error");
-const msgErr = document.getElementById("msg-error");
+const charCount = document.getElementById("msg-count");
 
 // Check so that firstname only contains letters
 firstName.addEventListener("input", function () {
@@ -72,6 +72,23 @@ email.addEventListener("input", function () {
       emailErr.classList.add("show");
       emailErr.innerHTML = "Email must contain a @";
    }
+});
+
+//Count characters in textarea
+msg.addEventListener("input", function () {
+   const text = msg.value;
+   const count = text.length;
+   charCount.textContent = count + " / " + "20";
+
+   charCount.classList.remove("under", "over");
+
+   if (count === 0) {
+      return;
+   }
+
+   if (count < 20) {
+      charCount.classList.add("under");
+   } else charCount.classList.add("over");
 });
 
 // Reset form
