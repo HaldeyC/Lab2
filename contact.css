@@ -42,11 +42,13 @@ section:focus {
    border: 2px solid var(--focus-color);
 }
 
-input.error-border {
+input.error-border,
+#msg.error-border {
    border: 2px solid var(--error-color);
 }
 
-input.valid-border {
+input.valid-border,
+#msg.valid-border {
    border: 2px solid var(--valid-color);
 }
 

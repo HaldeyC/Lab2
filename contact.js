@@ -81,6 +81,7 @@ msg.addEventListener("input", function () {
    charCount.textContent = count + " / " + "20";
 
    charCount.classList.remove("under", "over");
+   msg.classList.remove("valid-border", "error-border");
 
    if (count === 0) {
       return;
@@ -88,7 +89,11 @@ msg.addEventListener("input", function () {
 
    if (count < 20) {
       charCount.classList.add("under");
-   } else charCount.classList.add("over");
+      msg.classList.add("error-border");
+   } else {
+      charCount.classList.add("over");
+      msg.classList.add("valid-border");
+   }
 });
 
 // Reset form
