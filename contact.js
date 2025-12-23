@@ -6,6 +6,7 @@ const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const subject = document.getElementById("subject");
 const msg = document.getElementById("msg");
+const resetBtn = document.getElementById("resetBtn");
 
 //Outputs
 const fnameErr = document.getElementById("fname-error");
@@ -129,6 +130,22 @@ msg.addEventListener("input", function () {
    }
 });
 
-// Reset form
-//https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/reset
-document.getElementById("myForm").reset();
+// Reset button
+resetBtn.addEventListener("click", function (e) {
+   e.preventDefault();
+
+   firstName.value = "";
+   firstName.classList.remove("valid-border", "error-border");
+   lastName.value = "";
+   lastName.classList.remove("valid-border", "error-border");
+   email.value = "";
+   email.classList.remove("valid-border", "error-border");
+   phone.value = "";
+   phone.classList.remove("valid-border", "error-border");
+   subject.value = "";
+   subject.classList.remove("valid-border", "error-border");
+   msg.value = "";
+   msg.classList.remove("valid-border", "error-border");
+   charCount.textContent = "0 / 20";
+   charCount.classList.remove("under", "over");
+});
