@@ -7,13 +7,40 @@ const phone = document.getElementById("phone");
 const subject = document.getElementById("subject");
 const msg = document.getElementById("msg");
 const resetBtn = document.getElementById("resetBtn");
+const submitBtn = document.getElementById("submit");
 
-//Outputs
+// Outputs
 const fnameErr = document.getElementById("fname-error");
 const lnameErr = document.getElementById("lname-error");
 const emailErr = document.getElementById("email-error");
 const phoneErr = document.getElementById("phone-error");
 const charCount = document.getElementById("msg-count");
+
+// Functions
+function validateName() {}
+function validateEmail() {}
+function validateMessage() {}
+function showError() {}
+function clearError() {}
+function clearForm() {
+   const removeErrMsg = document.querySelectorAll(".err-msg");
+   removeErrMsg.forEach((p) => p.remove());
+
+   firstName.value = "";
+   firstName.classList.remove("valid-border", "error-border");
+   lastName.value = "";
+   lastName.classList.remove("valid-border", "error-border");
+   email.value = "";
+   email.classList.remove("valid-border", "error-border");
+   phone.value = "";
+   phone.classList.remove("valid-border", "error-border");
+   subject.value = "";
+   subject.classList.remove("valid-border", "error-border");
+   msg.value = "";
+   msg.classList.remove("valid-border", "error-border");
+   charCount.textContent = "0 / 20";
+   charCount.classList.remove("under", "over");
+}
 
 // Check so that firstname only contains letters
 firstName.addEventListener("input", function () {
@@ -133,22 +160,10 @@ msg.addEventListener("input", function () {
 // Reset button
 resetBtn.addEventListener("click", function (e) {
    e.preventDefault();
+   clearForm();
+});
 
-   const removeErrMsg = document.querySelectorAll(".err-msg");
-   removeErrMsg.forEach((p) => p.remove());
-
-   firstName.value = "";
-   firstName.classList.remove("valid-border", "error-border");
-   lastName.value = "";
-   lastName.classList.remove("valid-border", "error-border");
-   email.value = "";
-   email.classList.remove("valid-border", "error-border");
-   phone.value = "";
-   phone.classList.remove("valid-border", "error-border");
-   subject.value = "";
-   subject.classList.remove("valid-border", "error-border");
-   msg.value = "";
-   msg.classList.remove("valid-border", "error-border");
-   charCount.textContent = "0 / 20";
-   charCount.classList.remove("under", "over");
+// Submit button
+submitBtn.addEventListener("click", function (e) {
+   e.preventDefault();
 });
