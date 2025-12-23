@@ -134,6 +134,9 @@ msg.addEventListener("input", function () {
 resetBtn.addEventListener("click", function (e) {
    e.preventDefault();
 
+   const removeErrMsg = document.querySelectorAll(".err-msg");
+   removeErrMsg.forEach((p) => p.remove());
+
    firstName.value = "";
    firstName.classList.remove("valid-border", "error-border");
    lastName.value = "";
