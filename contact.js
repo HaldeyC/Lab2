@@ -3,12 +3,14 @@
 const firstName = document.getElementById("fname");
 const lastName = document.getElementById("lname");
 const email = document.getElementById("email");
+const phone = document.getElementById("phone");
 const msg = document.getElementById("msg");
 
 //Outputs
 const fnameErr = document.getElementById("fname-error");
 const lnameErr = document.getElementById("lname-error");
 const emailErr = document.getElementById("email-error");
+const phoneErr = document.getElementById("phone-error");
 const charCount = document.getElementById("msg-count");
 
 // Check so that firstname only contains letters
@@ -71,6 +73,27 @@ email.addEventListener("input", function () {
       email.classList.add("error-border");
       emailErr.classList.add("show");
       emailErr.innerHTML = "Email must contain a @";
+   }
+});
+
+// Check so that phone only contains numbers
+phone.addEventListener("input", function () {
+   const phoneValue = phone.value;
+   const onlyNumber = /^[0-9/-]+$/;
+
+   if (phoneValue === "") {
+      phoneErr.innerHTML = "";
+      phone.classList.remove("error-border", "valid-border");
+   } else if (!onlyNumber.test(phoneValue)) {
+      phoneErr.classList.add("show");
+      phone.classList.add("error-border");
+      phone.classList.remove("valid-border");
+      phoneErr.innerHTML = "Please use only numbers, / or -";
+   } else {
+      phoneErr.innerHTML = "";
+      phoneErr.classList.remove("show");
+      phone.classList.remove("error-border");
+      phone.classList.add("valid-border");
    }
 });
 
