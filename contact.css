@@ -4,6 +4,7 @@
 }
 
 form {
+   position: relative;
    background: var(--bg-form);
    border: 2px solid var(--secondary-color);
    border-radius: 0.5rem;
@@ -105,4 +106,25 @@ button {
 
 button:hover {
    scale: 1.1;
+}
+
+#form-sent {
+   display: none;
+   position: absolute;
+   grid-template-columns: 1fr;
+   width: 80%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.success-info {
+   background-color: var(--valid-color);
+   color: var(--primary-color);
+   padding: 10px;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
