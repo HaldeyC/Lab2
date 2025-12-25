@@ -8,6 +8,7 @@ const subject = document.getElementById("subject");
 const msg = document.getElementById("msg");
 const resetBtn = document.getElementById("resetBtn");
 const submitBtn = document.getElementById("submit");
+const formSent = document.getElementById("form-sent");
 
 // Outputs
 const fnameErr = document.getElementById("fname-error");
@@ -45,19 +46,11 @@ function validateEmail() {
    const emailValue = email.value;
 
    if (emailValue === "") {
-      email.classList.remove("valid-border", "error-border");
-      emailErr.classList.remove("show");
-      emailErr.innerHTML = "";
+      return resetField(email, emailErr);
    } else if (emailValue.includes("@")) {
-      email.classList.add("valid-border");
-      email.classList.remove("error-border");
-      emailErr.classList.remove("show");
-      emailErr.innerHTML = "";
+      return clearError(email, emailErr);
    } else {
-      email.classList.remove("valid-border");
-      email.classList.add("error-border");
-      emailErr.classList.add("show");
-      emailErr.innerHTML = "Email must contain a @";
+      return showError(email, emailErr, "Email must contain a @");
    }
 }
 function validatePhone() {
@@ -65,18 +58,11 @@ function validatePhone() {
    const onlyNumber = /^[0-9/-]+$/;
 
    if (phoneValue === "") {
-      phoneErr.innerHTML = "";
-      phone.classList.remove("error-border", "valid-border");
+      return resetField(phone, phoneErr);
    } else if (!onlyNumber.test(phoneValue)) {
-      phoneErr.classList.add("show");
-      phone.classList.add("error-border");
-      phone.classList.remove("valid-border");
-      phoneErr.innerHTML = "Please use only numbers, / or -";
+      return showError(phone, phoneErr, "Please use only numbers, / or -");
    } else {
-      phoneErr.innerHTML = "";
-      phoneErr.classList.remove("show");
-      phone.classList.remove("error-border");
-      phone.classList.add("valid-border");
+      return clearError(phone, phoneErr);
    }
 }
 function validateMessage() {
@@ -181,10 +167,11 @@ resetBtn.addEventListener("click", function (e) {
 form.addEventListener("submit", function (e) {
    const isFirstNameValid = validateName();
    const isLastNameValid = validateLast();
+   const isEmailValid = validateEmail();
+   const isMsgValid = validateMessage();
 
-   if (!isFirstNameValid || !isLastNameValid) {
+   if (!isFirstNameValid || !isLastNameValid || !isEmailValid || !isMsgValid) {
       e.preventDefault();
-      validateMessage();
       alert("Formuläret har fel och skickades inte.");
    } else {
       alert("Allt ser bra ut! Skickar...");
