@@ -16,6 +16,7 @@ const lnameErr = document.getElementById("lname-error");
 const emailErr = document.getElementById("email-error");
 const phoneErr = document.getElementById("phone-error");
 const charCount = document.getElementById("msg-count");
+const thanksTxt = document.getElementById("thanksTxt");
 
 // Functions
 function validateName() {
@@ -115,6 +116,9 @@ function clearForm() {
 }
 
 function showModal() {
+   const senderName = firstName.value;
+   thanksTxt.innerHTML = "Thank you " + senderName + "!";
+
    formSent.classList.add("sent");
    setTimeout(() => {
       formSent.classList.remove("sent");
