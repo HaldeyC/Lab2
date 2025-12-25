@@ -114,6 +114,14 @@ function clearForm() {
    charCount.classList.remove("under", "over");
 }
 
+function showModal() {
+   formSent.classList.add("sent");
+   setTimeout(() => {
+      formSent.classList.remove("sent");
+   }, 3000);
+   clearForm();
+}
+
 // Check so that firstname only contains letters
 firstName.addEventListener("input", validateName);
 
@@ -174,6 +182,6 @@ form.addEventListener("submit", function (e) {
       e.preventDefault();
       alert("Formuläret har fel och skickades inte.");
    } else {
-      alert("Allt ser bra ut! Skickar...");
+      showModal();
    }
 });
