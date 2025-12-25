@@ -22,21 +22,11 @@ function validateName() {
    const onlyLetters = /^[A-Za-z]+$/;
 
    if (fnameValue === "") {
-      fnameErr.innerHTML = "";
-      firstName.classList.remove("error-border", "valid-border");
-      return false;
+      return resetField(firstName, fnameErr);
    } else if (!onlyLetters.test(fnameValue)) {
-      fnameErr.classList.add("show");
-      fnameErr.innerHTML = "Please use only letters";
-      firstName.classList.add("error-border");
-      firstName.classList.remove("valid-border");
-      return false;
+      return showError(firstName, fnameErr, "Please use only letters");
    } else {
-      fnameErr.innerHTML = "";
-      fnameErr.classList.remove("show");
-      firstName.classList.remove("error-border");
-      firstName.classList.add("valid-border");
-      return true;
+      return clearError(firstName, fnameErr);
    }
 }
 function validateLast() {
@@ -44,21 +34,11 @@ function validateLast() {
    const onlyLetters = /^[A-Za-z]+$/;
 
    if (lnameValue === "") {
-      lnameErr.innerHTML = "";
-      lastName.classList.remove("error-border", "valid-border");
-      return false;
+      return resetField(lastName, lnameErr);
    } else if (!onlyLetters.test(lnameValue)) {
-      lnameErr.classList.add("show");
-      lnameErr.innerHTML = "Please use only letters";
-      lastName.classList.add("error-border");
-      lastName.classList.remove("valid-border");
-      return false;
+      return showError(lastName, lnameErr, "Please use only letters");
    } else {
-      lnameErr.innerHTML = "";
-      lnameErr.classList.remove("show");
-      lastName.classList.remove("error-border");
-      lastName.classList.add("valid-border");
-      return true;
+      return clearError(lastName, lnameErr);
    }
 }
 function validateEmail() {
@@ -106,8 +86,27 @@ function validateMessage() {
       return true;
    }
 }
-function showError() {}
-function clearError() {}
+function showError(inputField, errorElement, message) {
+   errorElement.innerHTML = message;
+   errorElement.classList.add("show");
+   inputField.classList.add("error-border");
+   inputField.classList.remove("valid-border");
+   return false;
+}
+function clearError(inputField, errorElement) {
+   errorElement.innerHTML = "";
+   errorElement.classList.remove("show");
+   inputField.classList.remove("error-border");
+   inputField.classList.add("valid-border");
+   return true;
+}
+// If element is empty then hide element and remove border
+function resetField(inputField, errorElement) {
+   errorElement.innerHTML = "";
+   errorElement.classList.remove("show");
+   inputField.classList.remove("error-border", "valid-border");
+   return false;
+}
 function clearForm() {
    firstName.value = "";
    firstName.classList.remove("valid-border", "error-border");
