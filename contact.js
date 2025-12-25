@@ -27,9 +27,9 @@ function validateName() {
       return false;
    } else if (!onlyLetters.test(fnameValue)) {
       fnameErr.classList.add("show");
+      fnameErr.innerHTML = "Please use only letters";
       firstName.classList.add("error-border");
       firstName.classList.remove("valid-border");
-      fnameErr.innerHTML = "Please use only letters";
       return false;
    } else {
       fnameErr.innerHTML = "";
@@ -49,9 +49,9 @@ function validateLast() {
       return false;
    } else if (!onlyLetters.test(lnameValue)) {
       lnameErr.classList.add("show");
+      lnameErr.innerHTML = "Please use only letters";
       lastName.classList.add("error-border");
       lastName.classList.remove("valid-border");
-      lnameErr.innerHTML = "Please use only letters";
       return false;
    } else {
       lnameErr.innerHTML = "";
@@ -99,7 +99,13 @@ function validatePhone() {
       phone.classList.add("valid-border");
    }
 }
-function validateMessage() {}
+function validateMessage() {
+   if (msg.value.length < 20) {
+      return false;
+   } else {
+      return true;
+   }
+}
 function showError() {}
 function clearError() {}
 function clearForm() {
@@ -179,6 +185,7 @@ form.addEventListener("submit", function (e) {
 
    if (!isFirstNameValid || !isLastNameValid) {
       e.preventDefault();
+      validateMessage();
       alert("Formuläret har fel och skickades inte.");
    } else {
       alert("Allt ser bra ut! Skickar...");
